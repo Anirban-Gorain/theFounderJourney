@@ -344,7 +344,7 @@ const sections = [
         title:
           "How to build powerful network on linkedin- Attract opportunities",
         youtubeLink: "",
-        notesLink: "/pages/how-to-build-a-powerful-network-on-linkedin.html",
+        notesLink: "theFounderJourney/pages/how-to-build-a-powerful-network-on-linkedin.html",
         publishedOrNot: false,
       },
       {
