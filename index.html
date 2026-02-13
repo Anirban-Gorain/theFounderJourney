@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/images/favicon/favicon.ico" />
+    <title>Welcome to theFounderJourney</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+      };
+    </script>
+  </head>
+  <body
+    class="bg-white text-gray-900 dark:bg-gray-900 dark:text-white transition-colors duration-300"
+  >
+    <!-- Header -->
+    <header class="bg-white dark:bg-gray-800 shadow-md">
+      <div class="px-6 py-4 md:flex justify-between">
+        <div class="flex justify-between items-center">
+          <h1
+            class="text-2xl sm:text-3xl font-extrabold tracking-wide bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent"
+          >
+            <a href="index.html">theFounderJourney</a>
+          </h1>
+
+          <button id="menuBtn" class="md:hidden text-2xl">☰</button>
+        </div>
+
+        <!-- SINGLE CONTENT -->
+        <div
+          id="content"
+          class="flex flex-col md:flex-row md:items-center gap-4 md:gap-6 mt-4 md:mt-0"
+        >
+          <a href="index.html#aboutMe">Know about us</a>
+
+          <button
+            id="themeToggle"
+            class="relative w-12 h-6 md:w-16 md:h-8 flex items-center bg-gray-300 dark:bg-gray-700 rounded-full p-1 transition-colors duration-300"
+          >
+            <div
+              id="toggleCircle"
+              class="w-4 h-4 md:w-6 md:h-6 bg-white rounded-full shadow-md transform transition-transform duration-300 flex items-center justify-center text-[10px] md:text-xs"
+            >
+              ☀️
+            </div>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Videos Section -->
+    <section class="px-8 py-12">
+      <h2 class="text-3xl font-semibold mb-8">Videos</h2>
+
+      <div id="accordion" class="w-full mx-auto mt-10 space-y-4"></div>
+    </section>
+
+    <!-- About Me Section -->
+    <section class="py-16 bg-gray-50 dark:bg-gray-900" id="aboutMe">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <!-- LEFT IMAGE -->
+          <div class="flex justify-center md:justify-start md:pl-6">
+            <div class="relative group">
+              <!-- Soft Elegant Glow -->
+              <div
+                class="absolute -inset-4 rounded-full bg-indigo-500/20 blur-2xl opacity-60 group-hover:opacity-80 transition duration-500"
+              ></div>
+
+              <!-- Subtle Gradient Ring -->
+              <div
+                class="relative p-[3px] rounded-full bg-gradient-to-br from-indigo-400/40 via-purple-400/30 to-pink-400/40"
+              >
+                <img
+                  src="images/mine-image.png"
+                  alt="Anirban Gorain"
+                  class="w-60 h-60 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-full object-cover bg-white dark:bg-gray-900 transition duration-500 group-hover:scale-105"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT CONTENT -->
+          <div class="space-y-6">
+            <h2 class="text-3xl md:text-4xl font-bold">Know About Me</h2>
+
+            <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+              Hi, I'm Anirban Gorain and I welcome you to
+              <span class="font-semibold">theFounderJourney</span>. I am not a
+              content creator, I like do conversations with you that matter,
+              that holds you back.
+
+              <br />
+              <br />
+
+              I believe we can use the internet not just to scroll, but to grow.
+              I’m here to share my voice, my experiences, and my journey.
+            </p>
+
+            <section class="mx-auto">
+              <h4 class="text-sm uppercase tracking-wider text-gray-400 mb-6">
+                My Growth Journey
+              </h4>
+              <div class="overflow-x-auto">
+                <table class="min-w-full rounded-lg overflow-hidden text-sm">
+                  <thead class="bg-indigo-500 text-white">
+                    <tr>
+                      <th class="py-2 px-4 text-left">Before</th>
+                      <th class="py-2 px-4 text-left">After</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                    <tr
+                      class="hover:bg-gray-100 dark:hover:bg-gray-700 transition"
+                    >
+                      <td class="py-2 px-4">Weed Addict</td>
+                      <td class="py-2 px-4">Focused Non-Smoker</td>
+                    </tr>
+                    <tr
+                      class="hover:bg-gray-100 dark:hover:bg-gray-700 transition"
+                    >
+                      <td class="py-2 px-4">Struggling in School (45%)</td>
+                      <td class="py-2 px-4">Becoming a Topper (97%)</td>
+                    </tr>
+                    <tr
+                      class="hover:bg-gray-100 dark:hover:bg-gray-700 transition"
+                    >
+                      <td class="py-2 px-4">Weak English</td>
+                      <td class="py-2 px-4">Speaking Fluently</td>
+                    </tr>
+                    <tr
+                      class="hover:bg-gray-100 dark:hover:bg-gray-700 transition"
+                    >
+                      <td class="py-2 px-4">Not Knowing Computers</td>
+                      <td class="py-2 px-4">Teaching B-Tech CSE Students</td>
+                    </tr>
+                    <tr
+                      class="hover:bg-gray-100 dark:hover:bg-gray-700 transition"
+                    >
+                      <td class="py-2 px-4">Struggling with Math</td>
+                      <td class="py-2 px-4">Becoming a Software Engineer</td>
+                    </tr>
+                    <tr
+                      class="hover:bg-gray-100 dark:hover:bg-gray-700 transition"
+                    >
+                      <td class="py-2 px-4">Underconfident</td>
+                      <td class="py-2 px-4">Building My Own Tech Company</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+            <!-- Social Links with Color Swipe Effect -->
+            <div class="flex flex-wrap gap-4 pt-6 justify-center">
+              <a
+                href="https://www.youtube.com/@thefounderjourneyofficial"
+                target="_blank"
+                class="relative overflow-hidden px-3 py-1 md:px-5 md:py-2 rounded-full bg-gradient-to-r from-red-500 to-red-600 text-white text-xs md:text-sm font-medium before:absolute before:top-0 before:left-[-100%] before:w-1/2 before:h-full before:bg-white/20 before:rotate-12 before:transition-all before:duration-500 hover:before:left-[150%]"
+              >
+                YouTube
+              </a>
+
+              <a
+                href="https://www.instagram.com/thefounderjourneyofficial"
+                target="_blank"
+                class="relative overflow-hidden px-3 py-1 md:px-5 md:py-2 rounded-full bg-gradient-to-r from-pink-500 to-pink-600 text-white text-xs md:text-sm font-medium before:absolute before:top-0 before:left-[-100%] before:w-1/2 before:h-full before:bg-white/20 before:rotate-12 before:transition-all before:duration-500 hover:before:left-[150%]"
+              >
+                Instagram
+              </a>
+
+              <a
+                href="https://www.linkedin.com/in/anirban-gorain"
+                target="_blank"
+                class="relative overflow-hidden px-3 py-1 md:px-5 md:py-2 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 text-white text-xs md:text-sm font-medium before:absolute before:top-0 before:left-[-100%] before:w-1/2 before:h-full before:bg-white/20 before:rotate-12 before:transition-all before:duration-500 hover:before:left-[150%]"
+              >
+                LinkedIn
+              </a>
+
+              <a
+                href="https://www.facebook.com/anirban.gorain.73"
+                target="_blank"
+                class="relative overflow-hidden px-3 py-1 md:px-5 md:py-2 rounded-full bg-gradient-to-r from-blue-700 to-blue-800 text-white text-xs md:text-sm font-medium before:absolute before:top-0 before:left-[-100%] before:w-1/2 before:h-full before:bg-white/20 before:rotate-12 before:transition-all before:duration-500 hover:before:left-[150%]"
+              >
+                Facebook
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>
