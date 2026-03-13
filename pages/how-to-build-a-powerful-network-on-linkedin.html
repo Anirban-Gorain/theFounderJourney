@@ -1,407 +1,903 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/x-icon" href="../images/favicon/favicon.ico" />
-    <title>Secret 1: Send Your Animals to the Right Forest</title>
+
+    <!-- SEO Meta Tags -->
+    <title>
+      LinkedIn Secrets: How to Network Smarter and Land Opportunities | The
+      Founder Journey
+    </title>
+    <link rel="icon" type="image/png" href="../images/favicon/increase.png" />
+    <meta
+      name="description"
+      content="Two proven LinkedIn secrets — building the right network and playing the numbers game — to get referrals, land jobs, and grow your professional presence strategically."
+    />
+    <meta
+      name="keywords"
+      content="LinkedIn networking, LinkedIn secrets, job referral, connection requests, LinkedIn tips, founder journey, career growth, LinkedIn strategy"
+    />
+    <meta name="author" content="Anirban Gorain" />
+    <meta name="robots" content="index, follow" />
+    <link
+      rel="canonical"
+      href="https://thefounderjourneyofficial.com/linkedin-secrets"
+    />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article" />
+    <meta
+      property="og:title"
+      content="LinkedIn Secrets: How to Network Smarter and Land Opportunities"
+    />
+    <meta
+      property="og:description"
+      content="Two proven LinkedIn secrets — building the right network and playing the numbers game — to get referrals and land jobs."
+    />
+    <meta
+      property="og:url"
+      content="https://thefounderjourneyofficial.com/linkedin-secrets"
+    />
+    <meta property="og:site_name" content="The Founder Journey" />
+    <meta property="article:author" content="Anirban Gorain" />
+    <meta property="article:published_time" content="2025-03-12" />
+    <meta
+      property="article:tag"
+      content="LinkedIn, Networking, Career, Startup"
+    />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="LinkedIn Secrets: How to Network Smarter and Land Opportunities"
+    />
+    <meta
+      name="twitter:description"
+      content="Two proven LinkedIn secrets to get referrals, land jobs, and grow your professional presence strategically."
+    />
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "LinkedIn Secrets: How to Network Smarter and Land Opportunities",
+        "description": "Two proven LinkedIn secrets — building the right network and playing the numbers game — to get referrals and land jobs.",
+        "author": {
+          "@type": "Person",
+          "name": "Anirban Gorain",
+          "url": "https://www.linkedin.com/in/anirban-gorain"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "The Founder Journey"
+        },
+        "datePublished": "2025-03-12",
+        "url": "https://thefounderjourneyofficial.com/linkedin-secrets"
+      }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
         darkMode: "class",
+        theme: {
+          extend: {
+            fontFamily: {
+              serif: ["Lora", "Georgia", "serif"],
+              sans: ["DM Sans", "sans-serif"],
+            },
+            colors: { brand: "#1a8917" },
+          },
+        },
       };
     </script>
+
+    <style>
+      body {
+        font-family: "DM Sans", sans-serif;
+      }
+
+      /* Theme transitions */
+      *,
+      *::before,
+      *::after {
+        transition:
+          background-color 0.2s ease,
+          color 0.2s ease,
+          border-color 0.2s ease;
+      }
+
+      /* Article body typography */
+      .article-body p {
+        font-family: "Lora", Georgia, serif;
+        font-size: 1.1rem;
+        line-height: 1.85;
+        margin-bottom: 1.5rem;
+      }
+      .article-body h2 {
+        font-family: "Lora", Georgia, serif;
+        font-size: 1.45rem;
+        font-weight: 700;
+        margin-top: 2.8rem;
+        margin-bottom: 0.8rem;
+      }
+      .article-body h3 {
+        font-family: "DM Sans", sans-serif;
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-top: 1.8rem;
+        margin-bottom: 0.5rem;
+      }
+
+      /* Smooth scroll */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Progress bar */
+      #progress-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 3px;
+        background: #1a8917;
+        width: 0%;
+        z-index: 9999;
+        transition: width 0.1s linear;
+      }
+
+      /* Fade in on load */
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(18px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .fade-up {
+        animation: fadeUp 0.7s ease both;
+      }
+      .fade-up-1 {
+        animation: fadeUp 0.7s 0.15s ease both;
+      }
+      .fade-up-2 {
+        animation: fadeUp 0.7s 0.3s ease both;
+      }
+      .fade-up-3 {
+        animation: fadeUp 0.7s 0.45s ease both;
+      }
+
+      /* Section divider */
+      .section-label {
+        border-left: 3px solid #1a8917;
+      }
+
+      /* Tip card hover */
+      .tip-card {
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+      .tip-card:hover {
+        transform: translateY(-2px);
+      }
+      /* YouTube embed responsive */
+      .yt-wrapper {
+        position: relative;
+        padding-bottom: 56.25%;
+        height: 0;
+        overflow: hidden;
+        border-radius: 12px;
+      }
+      .yt-wrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+        border-radius: 12px;
+      }
+    </style>
   </head>
+
   <body
-    class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 font-sans"
+    class="bg-white dark:bg-[#121212] text-gray-900 dark:text-gray-100 min-h-screen"
   >
-    <header class="bg-white dark:bg-gray-800 shadow-md">
-      <div class="px-6 py-4 md:flex justify-between">
-        <div class="flex justify-between items-center">
-          <h1
-            class="text-2xl sm:text-3xl font-extrabold tracking-wide bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent"
-          >
-            <a href="../index.html">theFounderJourney</a>
-          </h1>
+    <!-- Reading Progress Bar -->
+    <div id="progress-bar"></div>
 
-          <button id="menuBtn" class="md:hidden text-2xl">☰</button>
-        </div>
-
-        <!-- SINGLE CONTENT -->
-        <div
-          id="content"
-          class="flex flex-col md:flex-row md:items-center gap-4 md:gap-6 mt-4 md:mt-0"
+    <!-- NAVBAR -->
+    <nav
+      class="sticky top-0 z-50 bg-white dark:bg-[#121212] border-b border-gray-200 dark:border-gray-800"
+    >
+      <div
+        class="max-w-5xl mx-auto px-4 h-14 flex items-center justify-between"
+      >
+        <a
+          href="../index.html"
+          class="font-serif font-bold text-lg tracking-tight text-gray-900 dark:text-white"
         >
-          <a href="../index.html#aboutMe">Know about me</a>
-
+          The Founder Journey
+        </a>
+        <div class="flex items-center gap-3">
           <button
-            id="themeToggle"
-            class="relative w-12 h-6 md:w-16 md:h-8 flex items-center bg-gray-300 dark:bg-gray-700 rounded-full p-1 transition-colors duration-300"
+            id="theme-toggle"
+            aria-label="Toggle theme"
+            class="w-9 h-9 rounded-full flex items-center justify-center bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300"
           >
-            <div
-              id="toggleCircle"
-              class="w-4 h-4 md:w-6 md:h-6 bg-white rounded-full shadow-md transform transition-transform duration-300 flex items-center justify-center text-[10px] md:text-xs"
+            <svg
+              id="sun-icon"
+              class="w-4 h-4 hidden dark:block"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
             >
-              ☀️
-            </div>
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 3v1m0 16v1m8.66-9H21M3 12H2m15.36-6.36l-.7.7M6.34 17.66l-.7.7m12.02 0l-.7-.7M6.34 6.34l-.7-.7M12 5a7 7 0 100 14A7 7 0 0012 5z"
+              />
+            </svg>
+            <svg
+              id="moon-icon"
+              class="w-4 h-4 block dark:hidden"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"
+              />
+            </svg>
           </button>
         </div>
       </div>
-    </header>
+    </nav>
 
-    <section class="max-w-5xl mx-auto px-6 pt-16">
+    <!-- MAIN ARTICLE -->
+    <main class="max-w-2xl mx-auto px-5 pt-12 pb-24">
+      <!-- Publication label -->
+      <div class="fade-up mb-6">
+        <span
+          class="text-xs font-semibold uppercase tracking-widest text-[#1a8917] font-sans"
+          >The Founder Journey</span
+        >
+      </div>
+
       <!-- Title -->
-      <h1 class="text-4xl md:text-5xl font-bold text-indigo-600 mb-6">
-        Secret 1: Send Your Animals to the Right Forest
+      <h1
+        class="fade-up-1 font-serif text-3xl sm:text-4xl md:text-5xl font-bold leading-tight text-gray-900 dark:text-white mb-5"
+      >
+        LinkedIn Secrets: How to Network Smarter and Land Opportunities
       </h1>
 
-      <!-- Intro -->
-      <p
-        class="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-10 leading-relaxed"
+      <!-- Meta row -->
+      <div
+        class="fade-up-2 flex items-center gap-2 mb-8 text-sm text-gray-500 dark:text-gray-400 font-sans"
       >
-        The main idea is to treat your skills like animals and send them to the
-        right forest to hunt. On LinkedIn, this means connecting only with
-        people and groups where your skills can add some value.
-      </p>
+        <span>Feb 14, 2026</span>
+        <span>·</span>
+        <span>6 min read</span>
+      </div>
 
-      <!-- Step 1 -->
-      <div class="mb-10">
-        <h2 class="text-2xl font-semibold text-indigo-500 mb-4">
+      <!-- Top divider -->
+      <div class="border-t border-gray-200 dark:border-gray-700 mb-10"></div>
+
+      <!-- ARTICLE BODY -->
+      <article class="article-body fade-up-3">
+        <!-- Lead paragraph -->
+        <p
+          class="text-xl leading-relaxed font-serif text-gray-800 dark:text-gray-200 mb-8 border-l-4 border-[#1a8917] pl-5 italic"
+        >
+          Most people use LinkedIn wrong. They connect with everyone, message
+          nobody, and wonder why nothing happens. These two secrets changed how
+          I think about the platform and they can work for you too.
+        </p>
+
+        <!-- YouTube Embed -->
+        <div class="my-10">
+          <div class="yt-wrapper shadow-xl">
+            <iframe
+              src="https://www.youtube.com/embed/ZZhK3smKNYI"
+              title="50 Conversations That Changed My Confidence | The Founder Journey"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+              "
+              allowfullscreen
+              loading="lazy"
+            >
+            </iframe>
+          </div>
+          <p
+            class="text-center text-sm text-gray-400 dark:text-gray-500 mt-3 font-sans"
+          >
+            ▶ Watch the full experiment on YouTube
+          </p>
+        </div>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- SECRET 1 -->
+        <!-- ═══════════════════════════════════════════ -->
+        <div
+          class="section-label bg-gray-50 dark:bg-gray-800/50 rounded-r-xl px-5 py-3 mb-8"
+        >
+          <p
+            class="text-xs font-semibold uppercase tracking-widest text-[#1a8917] font-sans"
+          >
+            Secret 1
+          </p>
+          <p
+            class="font-serif font-bold text-xl text-gray-900 dark:text-white mt-1"
+          >
+            Send Your Animals to the Right Forest
+          </p>
+        </div>
+
+        <p>
+          The core idea is to treat your skills like animals and send them to
+          the right forest to hunt. On LinkedIn, this means connecting
+          <em>only</em> with people and groups where your skills can actually
+          add value not just collecting connections like trophies.
+        </p>
+
+        <h2 class="text-gray-900 dark:text-white">
           Step 1: Understand Connection Levels
         </h2>
-        <p class="mb-4">LinkedIn has three levels of connections:</p>
 
-        <ul class="list-decimal list-inside space-y-2 mb-4">
-          <li>
-            <span class="font-semibold">1st-degree connections:</span> People
-            you are already connected with. You can message them directly.
-            <br /><span class="text-gray-500"
-              >Example: Your batchmates, colleagues, or people you’ve already
-              connected with.</span
+        <p>LinkedIn organizes your network into three degrees of separation:</p>
+
+        <!-- Connection levels card -->
+        <div
+          class="bg-gray-50 dark:bg-gray-800/60 rounded-xl p-5 my-6 space-y-4 font-sans text-sm"
+        >
+          <div class="flex gap-3">
+            <span
+              class="w-7 h-7 rounded-full bg-[#1a8917] text-white flex items-center justify-center font-bold flex-shrink-0 text-xs"
+              >1</span
             >
-          </li>
-          <li>
-            <span class="font-semibold">2nd-degree connections:</span> People
-            connected to your 1st-degree connections but not to you but you can
-            send them a connection request. <br />
-          </li>
-          <li>
-            <span class="font-semibold">3rd-degree connections:</span> People
-            connected to your 2nd-degree connections they are more far away from
-            you. Their profile visibility can be limited to you depending on
-            their privacy settings. <br />
-          </li>
-        </ul>
+            <div>
+              <p class="font-semibold text-gray-900 dark:text-white">
+                1st-degree connections
+              </p>
+              <p class="text-gray-600 dark:text-gray-400 mt-0.5">
+                People you're already connected with. You can message them
+                directly. Think batchmates, colleagues, people you've already
+                linked up with.
+              </p>
+            </div>
+          </div>
+          <div class="flex gap-3">
+            <span
+              class="w-7 h-7 rounded-full bg-[#1a8917]/70 text-white flex items-center justify-center font-bold flex-shrink-0 text-xs"
+              >2</span
+            >
+            <div>
+              <p class="font-semibold text-gray-900 dark:text-white">
+                2nd-degree connections
+              </p>
+              <p class="text-gray-600 dark:text-gray-400 mt-0.5">
+                Connected to your 1st-degree connections but not to you yet. You
+                can send them a connection request.
+              </p>
+            </div>
+          </div>
+          <div class="flex gap-3">
+            <span
+              class="w-7 h-7 rounded-full bg-[#1a8917]/40 text-white flex items-center justify-center font-bold flex-shrink-0 text-xs"
+              >3</span
+            >
+            <div>
+              <p class="font-semibold text-gray-900 dark:text-white">
+                3rd-degree connections
+              </p>
+              <p class="text-gray-600 dark:text-gray-400 mt-0.5">
+                Connected to your 2nd-degree network. Further away, and their
+                profile visibility depends on privacy settings.
+              </p>
+            </div>
+          </div>
+        </div>
 
-        <p class="italic text-gray-600 dark:text-gray-400">
-          Why this matters: Start building your forest gradually, start sending
-          connection requests 2nd and 3rd-degree connections it will expand you
-          connection.
+        <p
+          class="italic text-gray-600 dark:text-gray-400 font-sans text-sm border-l-2 border-gray-300 dark:border-gray-600 pl-4 mb-6"
+        >
+          Why this matters: Start small, build gradually. Sending requests to
+          2nd and 3rd-degree connections in your target field is how you expand
+          your forest.
         </p>
-      </div>
 
-      <!-- Step 2 -->
-      <div class="mb-10">
-        <h2 class="text-2xl font-semibold text-indigo-500 mb-4">
+        <h2 class="text-gray-900 dark:text-white">
           Step 2: Sending Connection Requests
         </h2>
-        <p class="mb-4">
-          LinkedIn limits the number of connection requests you can send per
-          week to prevent spam. You can send around 100 requests per week, which
-          means 400 requests per month. Honestly speaking, this is more than
-          enough. Let me give you a small example:
 
-          <br />
-          <br />
-
-          If you target 4 companies each month, 400 connections per month ÷ 4 =
-          100 requests for each company. Even though 30% of people may not
-          accept your request, you will still have 60–70 connections in each
-          company/community. In <span class="font-semibold">Secret-2</span> you
-          can use these connections strategically.
+        <p>
+          LinkedIn limits you to around <strong>100 requests per week</strong>
+          roughly 400 per month. That's more than enough if you're strategic.
+          Here's a simple way to think about it:
         </p>
 
-        <p class="mb-4">
-          <span class="font-semibold">Tips:</span> Always add a
-          <span class="font-semibold">personalized-note</span>. Don’t just click
-          “Connect”.
-        </p>
-
+        <!-- Math callout -->
         <div
-          class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg mb-4 border-l-4 border-indigo-500"
+          class="bg-[#1a8917]/8 dark:bg-[#1a8917]/10 border border-[#1a8917]/30 rounded-xl p-5 my-6 font-sans text-sm"
         >
-          Example personalized note:<br />
-          <span class="italic text-gray-700 dark:text-gray-300">
-            Hi [Name], I saw your post about [topic] and found it really
-            insightful. I’d love to connect and learn more about your experience
-            in [field].
-          </span>
+          <p class="font-semibold text-[#1a8917] mb-2">Quick math 🌿</p>
+          <p class="text-gray-700 dark:text-gray-300">
+            Target <strong>4 companies per month</strong> → 400 ÷ 4 =
+            <strong>100 requests per company</strong>.
+          </p>
+          <p class="text-gray-700 dark:text-gray-300 mt-1">
+            Even if 30% don't accept, you still land
+            <strong>60–70 connections per company</strong>. Use those in Secret
+            2.
+          </p>
         </div>
 
-        <p class="italic text-gray-600 dark:text-gray-400">
-          Why personalized messages work: Increases acceptance rate and shows
-          you are serious.
+        <p>
+          Always add a <strong>personalized note</strong> never just click
+          "Connect" and move on.
         </p>
-      </div>
 
-      <!-- Step 3 -->
-      <div class="mb-10">
-        <h2 class="text-2xl font-semibold text-indigo-500 mb-4">
-          Step 3: Find Your Forest – People and Groups
+        <!-- Example note -->
+        <div
+          class="bg-gray-50 dark:bg-gray-800/60 border-l-3 rounded-r-xl p-5 my-6"
+          style="border-left: 3px solid #1a8917"
+        >
+          <p
+            class="text-xs font-semibold uppercase tracking-widest text-[#1a8917] mb-2 font-sans"
+          >
+            Example personalized note
+          </p>
+          <p
+            class="font-serif italic text-gray-700 dark:text-gray-300 text-base leading-relaxed"
+          >
+            "Hi [Name], I saw your post about [topic] and found it really
+            insightful. I'd love to connect and learn more about your experience
+            in [field]."
+          </p>
+        </div>
+
+        <p
+          class="italic text-gray-600 dark:text-gray-400 font-sans text-sm border-l-2 border-gray-300 dark:border-gray-600 pl-4 mb-6"
+        >
+          Why personalized messages work: They increase acceptance rate and
+          signal that you're intentional not just spamming.
+        </p>
+
+        <h2 class="text-gray-900 dark:text-white">
+          Step 3: Find Your Forest — People and Groups
         </h2>
 
-        <h3 class="text-xl font-semibold text-indigo-400 mb-2">
+        <h3 class="text-gray-800 dark:text-gray-200">
           A. People (individuals)
         </h3>
-        <p class="mb-2">
-          Use LinkedIn search: type your skill/job keyword → People tab →
-          Filters (2nd/3rd-degree, company, location).
-        </p>
-        <p class="italic text-gray-600 dark:text-gray-400 mb-4">
-          Connecting with irrelevant people reduces your chances of getting help
-          or referrals.
+        <p>
+          Use LinkedIn search: type your skill or job keyword → go to the
+          <strong>People</strong> tab → apply filters (2nd/3rd-degree, company,
+          location). Connect with people in spaces where your skills are
+          relevant. Connecting with random people reduces your chances of
+          getting real help or referrals later.
         </p>
 
-        <h3 class="text-xl font-semibold text-indigo-400 mb-2">
+        <h3 class="text-gray-800 dark:text-gray-200">
           B. Groups (communities)
         </h3>
-        <p class="mb-2">
-          Use the LinkedIn search bar to add relevant keywords, then filter by
-          <strong>Groups</strong>. Join the groups that match your interests or
-          industry.
+        <p>
+          Use the search bar with relevant keywords, then filter by
+          <strong>Groups</strong>. Join groups that match your interests or
+          industry. When picking groups, check the name, description, and
+          activity level and avoid promotional or purely marketing-focused
+          groups.
         </p>
-        <ul
-          class="list-disc list-inside space-y-2 mb-4 text-gray-700 dark:text-gray-300"
-        ></ul>
 
-        <p class="italic text-gray-600 dark:text-gray-400">
-          How to pick groups: Check name & description, activity level, avoid
-          promotional or marketing groups.
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- SECRET 2 -->
+        <!-- ═══════════════════════════════════════════ -->
+        <div
+          class="section-label bg-gray-50 dark:bg-gray-800/50 rounded-r-xl px-5 py-3 mb-8 mt-14"
+        >
+          <p
+            class="text-xs font-semibold uppercase tracking-widest text-[#1a8917] font-sans"
+          >
+            Secret 2
+          </p>
+          <p
+            class="font-serif font-bold text-xl text-gray-900 dark:text-white mt-1"
+          >
+            Play the Number Game
+          </p>
+        </div>
+
+        <p>
+          Now that you've built your forest in Secret 1, it's time to hunt. The
+          goal here is to maximize your chances of getting replies or referrals
+          by messaging a large number of <em>relevant people</em> in your
+          existing network specifically at the company where a job is posted.
         </p>
-      </div>
-    </section>
 
-    <section class="max-w-5xl mx-auto px-6 pt-16">
-      <!-- Title -->
-      <h1 class="text-4xl md:text-5xl font-bold text-indigo-600 mb-6">
-        Secret 2 – Play the Number Game
-      </h1>
-
-      <!-- Goal -->
-      <p
-        class="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-10 leading-relaxed"
-      >
-        Maximize your chances of getting replies or referrals by messaging a
-        large number of relevant people in your existing network, specifically
-        in the same company where the job is posted.
-      </p>
-
-      <!-- Step 1 -->
-      <div class="mb-10">
-        <h2 class="text-2xl font-semibold text-indigo-500 mb-4">
+        <h2 class="text-gray-900 dark:text-white">
           Step 1: Identify the Opportunity
         </h2>
-        <p class="mb-4">
-          Find a job that interests you anywhere. Example:
-          <span class="font-semibold">Content Creator role at Microsoft</span>.
-          Apply first on LinkedIn or the company website.
+        <p>
+          Find a job that interests you — anywhere. Let's say a
+          <strong>Content Creator role at Microsoft</strong>. Apply first on
+          LinkedIn or the company website. Don't skip this step; your
+          application gives your outreach credibility.
         </p>
-        <p class="mb-4 italic text-gray-600 dark:text-gray-400">
-          Concept: A single application rarely gets attention; messaging
-          multiple people in your network improves your probability of a
-          response.
-        </p>
-      </div>
 
-      <!-- Step 2 -->
-      <div class="mb-10">
-        <h2 class="text-2xl font-semibold text-indigo-500 mb-4">
+        <p
+          class="italic text-gray-600 dark:text-gray-400 font-sans text-sm border-l-2 border-gray-300 dark:border-gray-600 pl-4 mb-6"
+        >
+          A single application rarely gets attention. Messaging multiple people
+          in your network improves the probability of a response dramatically.
+        </p>
+
+        <h2 class="text-gray-900 dark:text-white">
           Step 2: Identify Relevant People in Your Network
         </h2>
-        <p class="mb-4">
-          Use LinkedIn search: type
-          <span class="font-semibold">company name</span>. Example: Microsoft .
-          Filter → People → 1st-degree connections. Start sending the you
-          referral message template to as many connections as you can. Make sure
-          you fix sir/mam based on gender, Morning or evening based on when you
-          are sending the message.
+        <p>
+          Use LinkedIn search: type the <strong>company name</strong> (e.g.
+          Microsoft) → filter by
+          <strong>People → 1st-degree connections</strong>. Start sending your
+          referral message template to as many relevant connections as you can.
+          Adjust for gender (sir/ma'am) and time of day (morning/evening) based
+          on when you're sending.
         </p>
-      </div>
 
-      <!-- Step 6 -->
-      <div class="mb-10">
-        <h2 class="text-2xl font-semibold text-indigo-500 mb-4">
-          Step 6: Track Responses
+        <h2 class="text-gray-900 dark:text-white">
+          Step 3: Track Every Response
         </h2>
-        <p class="mb-4">
-          Maintain a simple tracker (Notion, Google Sheet, or notebook) with
-          columns:
-          <span class="font-semibold"
-            >Name | Company | Role | Date Messaged | Response</span
-          >. Follow up 1–2 weeks later if no reply.
+        <p>
+          Maintain a simple tracker in Notion, Google Sheets, or even a notebook
+          with these columns:
+          <strong>Name | Company | Role | Date Messaged | Response</strong>.
+          Follow up 1–2 weeks later if you hear nothing. Persistence — done
+          respectfully — is what separates people who get replies from people
+          who don't.
         </p>
-      </div>
 
-      <!-- Summary -->
-      <div class="mb-10">
-        <h2 class="text-2xl font-semibold text-indigo-500 mb-4">
-          Summary – Messaging Game
-        </h2>
-        <ul
-          class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"
+        <!-- Summary box -->
+        <div
+          class="bg-gray-50 dark:bg-gray-800/60 rounded-xl p-6 my-8 font-sans text-sm space-y-2"
         >
-          <li>Apply for the job first.</li>
-          <li>
-            Identify all 1st-degree connections in the same company, ideally in
-            the same field but include other departments too.
-          </li>
-          <li>Send personalized, concise messages highlighting your value.</li>
-          <li>Track responses and follow up → maximize chances of success.</li>
-        </ul>
-        <p class="mt-4 italic text-gray-600 dark:text-gray-400">
-          Key idea: Here the focus is not on connecting (in Secret you already
-          did it), but leveraging your closest network to broadcast your
-          application broadly and increase reply probability.
+          <p class="font-semibold text-gray-900 dark:text-white mb-3 text-base">
+            Secret 2 in a nutshell
+          </p>
+          <div class="flex items-start gap-2 text-gray-700 dark:text-gray-300">
+            <span class="text-[#1a8917]">→</span
+            ><span>Apply for the job first.</span>
+          </div>
+          <div class="flex items-start gap-2 text-gray-700 dark:text-gray-300">
+            <span class="text-[#1a8917]">→</span
+            ><span
+              >Find all 1st-degree connections at that company ame field, but
+              include other departments too.</span
+            >
+          </div>
+          <div class="flex items-start gap-2 text-gray-700 dark:text-gray-300">
+            <span class="text-[#1a8917]">→</span
+            ><span
+              >Send personalized, concise messages that highlight your
+              value.</span
+            >
+          </div>
+          <div class="flex items-start gap-2 text-gray-700 dark:text-gray-300">
+            <span class="text-[#1a8917]">→</span
+            ><span
+              >Track responses and follow up to maximize your chances.</span
+            >
+          </div>
+          <p class="mt-3 italic text-gray-500 dark:text-gray-400 text-xs">
+            Secret 1 is about connecting. Secret 2 is about leveraging those
+            connections to broadcast your application and increase reply
+            probability.
+          </p>
+        </div>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- TIPS SECTION -->
+        <!-- ═══════════════════════════════════════════ -->
+        <div
+          class="section-label bg-gray-50 dark:bg-gray-800/50 rounded-r-xl px-5 py-3 mb-8 mt-14"
+        >
+          <p
+            class="text-xs font-semibold uppercase tracking-widest text-[#1a8917] font-sans"
+          >
+            Bonus
+          </p>
+          <p
+            class="font-serif font-bold text-xl text-gray-900 dark:text-white mt-1"
+          >
+            LinkedIn Networking Tips
+          </p>
+        </div>
+
+        <p>
+          Beyond the two secrets, here are the mindset shifts that make the
+          biggest difference on LinkedIn.
         </p>
-      </div>
-    </section>
+      </article>
 
-    <section class="pt-16 bg-gray-50 dark:bg-gray-900 py-16">
-      <div class="max-w-5xl mx-auto px-6 space-y-8">
-        <h2 class="text-3xl font-bold text-indigo-600">
-          LinkedIn Networking Tips
-        </h2>
-
-        <div class="space-y-6 text-gray-700 dark:text-gray-300">
-          <!-- Tip 1 -->
-          <div
-            class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow hover:shadow-lg transition"
+      <!-- TIP CARDS (outside article-body to control typography separately) -->
+      <div class="space-y-4 mt-2 mb-12">
+        <div
+          class="tip-card bg-gray-50 dark:bg-gray-800/50 rounded-xl p-5 border border-gray-100 dark:border-gray-700/50 shadow-sm hover:shadow-md"
+        >
+          <p class="font-semibold text-gray-900 dark:text-white font-sans mb-1">
+            Don't say "Thank You" — say something real
+          </p>
+          <p
+            class="text-sm text-gray-600 dark:text-gray-400 font-sans leading-relaxed"
           >
-            <h3 class="text-xl font-semibold text-indigo-500 mb-2">
-              Do not say “Thank You”
-            </h3>
-            <p>
-              Instead, say:
-              <span class="font-medium">“I appreciate that you told me”</span>
-            </p>
-            <p class="mt-2 text-gray-500 dark:text-gray-400">
-              Why: It adds a personal touch and shows you genuinely value the
-              interaction, not just following formalities.
-            </p>
-          </div>
+            Instead of "Thank you," try
+            <span class="italic text-gray-800 dark:text-gray-200"
+              >"I appreciate that you told me."</span
+            >
+            It adds a personal touch and shows you genuinely value the
+            interaction, not just following formalities.
+          </p>
+        </div>
 
-          <!-- Tip 2 -->
-          <div
-            class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow hover:shadow-lg transition"
+        <div
+          class="tip-card bg-gray-50 dark:bg-gray-800/50 rounded-xl p-5 border border-gray-100 dark:border-gray-700/50 shadow-sm hover:shadow-md"
+        >
+          <p class="font-semibold text-gray-900 dark:text-white font-sans mb-1">
+            Don't chase people too far ahead of you
+          </p>
+          <p
+            class="text-sm text-gray-600 dark:text-gray-400 font-sans leading-relaxed"
           >
-            <h3 class="text-xl font-semibold text-indigo-500 mb-2">
-              Do not chase people who are too far ahead
-            </h3>
-            <p>
-              Avoid reaching out to ultra-experienced professionals with decades
-              of experience, they are less likely to reply and may not relate to
-              your level.
-            </p>
-            <p class="mt-2 text-gray-500 dark:text-gray-400">
-              Focus on people 2–3 years ahead of you. They are approachable,
-              understand your challenges, and can mentor or refer you
-              effectively.
-            </p>
-            <p class="mt-1">
-              Example: If you’re a junior content creator, connect with someone
-              who has been in the role for 2–3 years rather than a VP-level
-              executive.
-            </p>
-          </div>
+            Ultra-experienced professionals are less likely to reply and may not
+            relate to your level. Focus on people
+            <strong class="text-gray-800 dark:text-gray-200"
+              >2–3 years ahead</strong
+            >
+            they're approachable, understand your challenges, and can actually
+            mentor or refer you. If you're a junior content creator, connect
+            with mid-level creators, not VPs.
+          </p>
+        </div>
 
-          <!-- Tip 3 -->
-          <div
-            class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow hover:shadow-lg transition"
+        <div
+          class="tip-card bg-gray-50 dark:bg-gray-800/50 rounded-xl p-5 border border-gray-100 dark:border-gray-700/50 shadow-sm hover:shadow-md"
+        >
+          <p class="font-semibold text-gray-900 dark:text-white font-sans mb-1">
+            Some people are there to market, not mentor
+          </p>
+          <p
+            class="text-sm text-gray-600 dark:text-gray-400 font-sans leading-relaxed"
           >
-            <h3 class="text-xl font-semibold text-indigo-500 mb-2">
-              Some people are there to market, not mentor
-            </h3>
-            <p>
-              Many professionals post content to promote courses, webinars, or
-              products. Their primary goal is visibility, not mentorship.
-            </p>
-            <p class="mt-2 text-gray-500 dark:text-gray-400">
-              Avoid expecting guidance or favors from them they rarely provide
-              meaningful 1:1 help.
-            </p>
-            <p class="mt-1">
-              Focus on people who actively share experiences, give advice but
-              not a influencer, or respond thoughtfully in comments.
-            </p>
-          </div>
+            Many professionals post content to promote courses or products their
+            goal is visibility, not mentorship. Don't expect 1:1 guidance from
+            them. Focus on people who actively share experiences, give advice,
+            and respond thoughtfully in comments.
+          </p>
+        </div>
 
-          <!-- Tip 4 -->
-          <div
-            class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow hover:shadow-lg transition"
+        <div
+          class="tip-card bg-gray-50 dark:bg-gray-800/50 rounded-xl p-5 border border-gray-100 dark:border-gray-700/50 shadow-sm hover:shadow-md"
+        >
+          <p class="font-semibold text-gray-900 dark:text-white font-sans mb-1">
+            Talk where everyone can see you
+          </p>
+          <p
+            class="text-sm text-gray-600 dark:text-gray-400 font-sans leading-relaxed"
           >
-            <h3 class="text-xl font-semibold text-indigo-500 mb-2">
-              Talk where everyone can see you
-            </h3>
-            <p>
-              Don’t just scroll. Visibility builds credibility. Engage in
-              comments, share insights, ask thoughtful questions.
-            </p>
-          </div>
+            Don't just scroll. Engage in comments, share insights, ask
+            thoughtful questions. Visibility builds credibility and credibility
+            opens doors.
+          </p>
+        </div>
 
-          <!-- Tip 5 -->
-          <div
-            class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow hover:shadow-lg transition"
+        <div
+          class="tip-card bg-gray-50 dark:bg-gray-800/50 rounded-xl p-5 border border-gray-100 dark:border-gray-700/50 shadow-sm hover:shadow-md"
+        >
+          <p class="font-semibold text-gray-900 dark:text-white font-sans mb-1">
+            Don't keep changing your profile picture
+          </p>
+          <p
+            class="text-sm text-gray-600 dark:text-gray-400 font-sans leading-relaxed"
           >
-            <h3 class="text-xl font-semibold text-indigo-500 mb-2">
-              Do not keep changing your DP
-            </h3>
-            <p>
-              A consistent profile picture helps people recognize you over time,
-              which is essential for networking.
-            </p>
+            A consistent DP helps people recognize you over time essential for
+            networking. Choose a professional, friendly, clear image and stick
+            with it.
+          </p>
+        </div>
 
-            <p class="mt-1">
-              Tip: Choose a professional, friendly, and clear image that
-              represents you well and stick with it.
-            </p>
-          </div>
-
-          <!-- Tip 6 -->
-          <div
-            class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow hover:shadow-lg transition"
+        <div
+          class="tip-card bg-gray-50 dark:bg-gray-800/50 rounded-xl p-5 border border-gray-100 dark:border-gray-700/50 shadow-sm hover:shadow-md"
+        >
+          <p class="font-semibold text-gray-900 dark:text-white font-sans mb-1">
+            Connections matter more than likes
+          </p>
+          <p
+            class="text-sm text-gray-600 dark:text-gray-400 font-sans leading-relaxed"
           >
-            <h3 class="text-xl font-semibold text-indigo-500 mb-2">
-              Connections matter more than likes
-            </h3>
+            Even if your post gets few likes, having the right
+            <strong class="text-gray-800 dark:text-gray-200"
+              >50 connections</strong
+            >
+            actively looking out for you is far more valuable than 500 passive
+            followers. Build a network of helpful people not just an audience.
+          </p>
+        </div>
 
-            <p class="mt-2 text-gray-500 dark:text-gray-400">
-              Focus on building a network of helpful connections—people who can
-              provide advice, referrals, or guidance.
-            </p>
-            <p class="mt-1">
-              Tip: Even if your post gets few likes, having the right 50
-              connections actively looking out for you is far more valuable than
-              500 passive followers.
-            </p>
-          </div>
-
-          <!-- Tip 7 -->
-          <div
-            class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow hover:shadow-lg transition"
+        <div
+          class="tip-card bg-gray-50 dark:bg-gray-800/50 rounded-xl p-5 border border-gray-100 dark:border-gray-700/50 shadow-sm hover:shadow-md"
+        >
+          <p class="font-semibold text-gray-900 dark:text-white font-sans mb-1">
+            Don't wait to be noticed take initiative
+          </p>
+          <p
+            class="text-sm text-gray-600 dark:text-gray-400 font-sans leading-relaxed"
           >
-            <h3 class="text-xl font-semibold text-indigo-500 mb-2">
-              Do not wait to be noticed
-            </h3>
-            <p>
-              Instead of waiting for people to approach you, take initiative.
-              Ask for openings, mentorship, collaboration this will set you
-              apart from thr crowd.
-            </p>
-          </div>
+            Instead of waiting for people to find you, ask for openings,
+            mentorship, or collaboration. It will set you apart from the crowd.
+          </p>
         </div>
       </div>
-    </section>
 
-    <script src="../script.js"></script>
+      <!-- Divider -->
+      <div class="border-t border-gray-200 dark:border-gray-700 my-12"></div>
+
+      <!-- AUTHOR BIO / FOOTER CARD -->
+      <div class="bg-gray-50 dark:bg-gray-800/50 rounded-2xl p-6">
+        <p
+          class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-sans mb-5"
+        >
+          I am documenting everything as I try to build a startup from zero the
+          experiments, the uncomfortable tests, the wins, the mistakes, and the
+          lessons I learn along the way. If you like this kind of raw journey,
+          connect with me:
+        </p>
+        <div class="flex items-center gap-3">
+          <!-- YouTube -->
+          <a
+            href="https://www.youtube.com/@thefounderjourneyofficial"
+            target="_blank"
+            rel="noopener"
+            aria-label="YouTube"
+            class="w-9 h-9 rounded-full flex items-center justify-center bg-gray-200 dark:bg-gray-700 hover:bg-red-100 dark:hover:bg-red-900/40 text-gray-600 dark:text-gray-400 hover:text-red-600 transition-colors"
+          >
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 00.5 6.2 31.5 31.5 0 000 12a31.5 31.5 0 00.5 5.8A3 3 0 002.6 20c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 002.1-2.1A31.5 31.5 0 0024 12a31.5 31.5 0 00-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"
+              />
+            </svg>
+          </a>
+          <!-- Instagram -->
+          <a
+            href="https://www.instagram.com/thefounderjourneyofficial"
+            target="_blank"
+            rel="noopener"
+            aria-label="Instagram"
+            class="w-9 h-9 rounded-full flex items-center justify-center bg-gray-200 dark:bg-gray-700 hover:bg-pink-100 dark:hover:bg-pink-900/40 text-gray-600 dark:text-gray-400 hover:text-pink-600 transition-colors"
+          >
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1s-3.6 0-4.8-.1c-3.2-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.3 2.2 12s0-3.6.1-4.8C2.4 3.9 4 2.3 7.2 2.3c1.2-.1 1.6-.1 4.8-.1zm0-2.2C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.2 4.4 2.6 6.8 7 7C8.3 24 8.7 24 12 24s3.7 0 4.9-.1c4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9C23.7 2.7 21.3.3 16.9.1 15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 100 12.4A6.2 6.2 0 0012 5.8zM12 16a4 4 0 110-8 4 4 0 010 8zm6.4-11.8a1.4 1.4 0 100 2.8 1.4 1.4 0 000-2.8z"
+              />
+            </svg>
+          </a>
+          <!-- LinkedIn -->
+          <a
+            href="https://www.linkedin.com/in/anirban-gorain"
+            target="_blank"
+            rel="noopener"
+            aria-label="LinkedIn"
+            class="w-9 h-9 rounded-full flex items-center justify-center bg-gray-200 dark:bg-gray-700 hover:bg-blue-100 dark:hover:bg-blue-900/40 text-gray-600 dark:text-gray-400 hover:text-blue-600 transition-colors"
+          >
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M20.4 20.4h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.4V9h3.4v1.6h.1c.5-.9 1.6-1.9 3.3-1.9 3.5 0 4.1 2.3 4.1 5.3v6.4zM5.3 7.4a2.1 2.1 0 110-4.2 2.1 2.1 0 010 4.2zm1.8 13H3.5V9h3.6v11.4zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6C0 23.2.8 24 1.8 24h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0z"
+              />
+            </svg>
+          </a>
+          <!-- Facebook -->
+          <a
+            href="https://www.facebook.com/anirban.gorain.73"
+            target="_blank"
+            rel="noopener"
+            aria-label="Facebook"
+            class="w-9 h-9 rounded-full flex items-center justify-center bg-gray-200 dark:bg-gray-700 hover:bg-blue-100 dark:hover:bg-blue-900/40 text-gray-600 dark:text-gray-400 hover:text-blue-700 transition-colors"
+          >
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M24 12.1C24 5.4 18.6 0 12 0S0 5.4 0 12.1C0 18.1 4.4 23 10.1 24v-8.4H7.1v-3.5h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2V8h-1.5c-1.5 0-1.9.9-1.9 1.9v2.2h3.3l-.5 3.5h-2.8V24C19.6 23 24 18.1 24 12.1z"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer
+      class="border-t border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-[#0e0e0e]"
+    >
+      <div
+        class="max-w-5xl mx-auto px-5 py-10 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-500 dark:text-gray-500 font-sans"
+      >
+        <span class="font-serif font-bold text-gray-700 dark:text-gray-300"
+          >The Founder Journey</span
+        >
+        <span>© 2025 theFounderJourney · All rights reserved</span>
+        <div class="flex items-center gap-4">
+          <a
+            href="https://www.youtube.com/@thefounderjourneyofficial"
+            target="_blank"
+            rel="noopener"
+            class="hover:text-gray-900 dark:hover:text-white transition-colors"
+            >YouTube</a
+          >
+          <a
+            href="https://www.instagram.com/thefounderjourneyofficial"
+            target="_blank"
+            rel="noopener"
+            class="hover:text-gray-900 dark:hover:text-white transition-colors"
+            >Instagram</a
+          >
+          <a
+            href="https://www.linkedin.com/in/anirban-gorain"
+            target="_blank"
+            rel="noopener"
+            class="hover:text-gray-900 dark:hover:text-white transition-colors"
+            >LinkedIn</a
+          >
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Theme toggle
+      const html = document.documentElement;
+      const saved = localStorage.getItem("theme");
+      if (
+        saved === "dark" ||
+        (!saved && window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        html.classList.add("dark");
+      }
+      document.getElementById("theme-toggle").addEventListener("click", () => {
+        html.classList.toggle("dark");
+        localStorage.setItem(
+          "theme",
+          html.classList.contains("dark") ? "dark" : "light",
+        );
+      });
+
+      // Reading progress bar
+      window.addEventListener("scroll", () => {
+        const doc = document.documentElement;
+        const scrolled = doc.scrollTop;
+        const total = doc.scrollHeight - doc.clientHeight;
+        document.getElementById("progress-bar").style.width =
+          (scrolled / total) * 100 + "%";
+      });
+    </script>
   </body>
 </html>

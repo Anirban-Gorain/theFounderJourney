@@ -1,170 +1,591 @@
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="light scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/x-icon" href="./images/favicon/favicon.ico" />
-    <title>Welcome to theFounderJourney</title>
+
+    <!-- SEO -->
+    <title>The Founder Journey | Documenting a Startup from Zero</title>
+    <link rel="icon" type="image/png" href="./images/favicon/increase.png" />
+    <meta
+      name="description"
+      content="I'm documenting everything as I try to build a startup from zero — the experiments, mistakes, wins, and lessons. Videos, notes, and raw founder insights."
+    />
+    <meta
+      name="keywords"
+      content="founder journey, startup from zero, startup fundamentals, entrepreneurship, startup mistakes, case studies, founder blog, Anirban Gorain"
+    />
+    <meta name="author" content="Anirban Gorain" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://thefounderjourneyofficial.com" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="The Founder Journey | Documenting a Startup from Zero"
+    />
+    <meta
+      property="og:description"
+      content="Videos, notes, and raw founder insights — documenting a startup from zero."
+    />
+    <meta property="og:url" content="https://thefounderjourneyofficial.com" />
+    <meta property="og:site_name" content="The Founder Journey" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="The Founder Journey | Documenting a Startup from Zero"
+    />
+    <meta
+      name="twitter:description"
+      content="Videos, notes, and raw founder insights — documenting a startup from zero."
+    />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "The Founder Journey",
+        "url": "https://thefounderjourneyofficial.com",
+        "author": { "@type": "Person", "name": "Anirban Gorain" }
+      }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
         darkMode: "class",
+        theme: {
+          extend: {
+            fontFamily: {
+              serif: ["Lora", "Georgia", "serif"],
+              sans: ["DM Sans", "sans-serif"],
+            },
+            colors: {
+              brand: "#1a8917",
+            },
+            backgroundImage: {
+              "dot-grid":
+                "radial-gradient(circle, rgba(26,137,23,0.11) 1px, transparent 1px)",
+              "glow-brand":
+                "radial-gradient(circle, rgba(26,137,23,0.12) 0%, transparent 70%)",
+            },
+            backgroundSize: {
+              "grid-28": "28px 28px",
+            },
+            width: {
+              zero: "0%",
+            },
+            keyframes: {
+              fadeUp: {
+                "0%": { opacity: "0", transform: "translateY(20px)" },
+                "100%": { opacity: "1", transform: "translateY(0)" },
+              },
+              pulseOpacity: {
+                "0%,100%": { opacity: "1" },
+                "50%": { opacity: "0.3" },
+              },
+              ticker: {
+                "0%": { transform: "translateX(0)" },
+                "100%": { transform: "translateX(-50%)" },
+              },
+              underlineGrow: {
+                "0%": { width: "0%" },
+                "100%": { width: "100%" },
+              },
+              cardReveal: {
+                "0%": { opacity: "0", transform: "translateY(16px)" },
+                "100%": { opacity: "1", transform: "translateY(0)" },
+              },
+            },
+            animation: {
+              "fade-up": "fadeUp 0.7s ease both",
+              "fade-up-1": "fadeUp 0.7s 0.1s ease both",
+              "fade-up-2": "fadeUp 0.7s 0.2s ease both",
+              "fade-up-3": "fadeUp 0.7s 0.32s ease both",
+              "pulse-dot": "pulseOpacity 1.8s ease infinite",
+              ticker: "ticker 30s linear infinite",
+              underline: "underlineGrow 0.9s 0.8s ease forwards",
+              "card-reveal": "cardReveal 0.5s ease both",
+            },
+          },
+        },
       };
     </script>
   </head>
+
   <body
-    class="bg-white text-gray-900 dark:bg-gray-900 dark:text-white transition-colors duration-300"
+    class="bg-white dark:bg-[#121212] text-gray-900 dark:text-gray-100 min-h-screen font-sans transition-colors duration-200"
   >
-    <!-- Header -->
-    <header class="bg-white dark:bg-gray-800 shadow-md">
-      <div class="px-6 py-4 md:flex justify-between">
-        <div class="flex justify-between items-center">
-          <h1
-            class="text-2xl sm:text-3xl font-extrabold tracking-wide bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent"
-          >
-            <a href="index.html">theFounderJourney</a>
-          </h1>
+    <!-- Progress bar (width set by JS) -->
+    <div
+      id="progress-bar"
+      class="fixed top-0 left-0 h-[3px] bg-brand z-[9999] w-0 transition-none"
+    ></div>
 
-          <button id="menuBtn" class="md:hidden text-2xl">☰</button>
-        </div>
-
-        <!-- SINGLE CONTENT -->
-        <div
-          id="content"
-          class="flex flex-col md:flex-row md:items-center gap-4 md:gap-6 mt-4 md:mt-0"
+    <!-- ── NAVBAR ──────────────────────────────────────────────── -->
+    <nav
+      class="sticky top-0 z-50 bg-white dark:bg-[#121212] border-b border-gray-200 dark:border-gray-800 transition-colors duration-200"
+    >
+      <div
+        class="max-w-5xl mx-auto px-4 h-14 flex items-center justify-between"
+      >
+        <a
+          href="./index.html"
+          class="font-serif font-bold text-lg tracking-tight text-gray-900 dark:text-white"
         >
-          <a href="index.html#aboutMe">Know about me</a>
-
-          <button
-            id="themeToggle"
-            class="relative w-12 h-6 md:w-16 md:h-8 flex items-center bg-gray-300 dark:bg-gray-700 rounded-full p-1 transition-colors duration-300"
+          The Founder Journey
+        </a>
+        <div class="flex items-center gap-5">
+          <a
+            href="#about"
+            class="hidden sm:block text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-brand dark:hover:text-brand transition-colors whitespace-nowrap"
           >
-            <div
-              id="toggleCircle"
-              class="w-4 h-4 md:w-6 md:h-6 bg-white rounded-full shadow-md transform transition-transform duration-300 flex items-center justify-center text-[10px] md:text-xs"
+            About The&#8209;Founder&#8209;Journey
+          </a>
+          <button
+            id="theme-toggle"
+            aria-label="Toggle theme"
+            class="w-9 h-9 rounded-full flex items-center justify-center bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300 transition-colors flex-shrink-0"
+          >
+            <svg
+              id="sun-icon"
+              class="w-4 h-4 hidden dark:block"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
             >
-              ☀️
-            </div>
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 3v1m0 16v1m8.66-9H21M3 12H2m15.36-6.36l-.7.7M6.34 17.66l-.7.7m12.02 0l-.7-.7M6.34 6.34l-.7-.7M12 5a7 7 0 100 14A7 7 0 0012 5z"
+              />
+            </svg>
+            <svg
+              id="moon-icon"
+              class="w-4 h-4 block dark:hidden"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"
+              />
+            </svg>
           </button>
         </div>
       </div>
-    </header>
+    </nav>
 
-    <!-- Videos Section -->
-    <section class="px-8 py-12">
-      <h2 class="text-3xl font-semibold mb-8">Videos</h2>
+    <!-- ── HERO ────────────────────────────────────────────────── -->
+    <section
+      class="relative overflow-hidden bg-white dark:bg-[#121212] transition-colors duration-200"
+    >
+      <!-- Dot-grid overlay -->
+      <div
+        class="absolute inset-0 pointer-events-none z-0 bg-dot-grid bg-grid-28"
+      ></div>
 
-      <div id="accordion" class="w-full mx-auto mt-10 space-y-4"></div>
-    </section>
+      <!-- Green glow blob -->
+      <div
+        class="absolute -top-32 -right-32 w-[480px] h-[480px] rounded-full pointer-events-none z-0 bg-glow-brand"
+      ></div>
 
-    <!-- About Me Section -->
-    <section class="py-16 bg-gray-50 dark:bg-gray-900" id="aboutMe">
-      <div class="max-w-6xl mx-auto px-6">
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-          <!-- LEFT IMAGE -->
-          <div class="flex justify-center md:justify-start md:pl-6">
-            <div class="relative group">
-              <!-- Soft Glow -->
-              <div
-                class="absolute -inset-4 rounded-3xl bg-indigo-500/15 blur-2xl opacity-60 group-hover:opacity-80 transition duration-500"
-              ></div>
+      <div class="relative z-10 max-w-5xl mx-auto px-5 pt-14 pb-0">
+        <!-- Live badge -->
+        <div class="animate-fade-up flex items-center gap-2 mb-6">
+          <span
+            class="animate-pulse-dot w-2 h-2 rounded-full bg-brand block"
+          ></span>
+          <span
+            class="text-xs font-semibold uppercase tracking-widest text-brand font-sans"
+            >Live experiment on me</span
+          >
+        </div>
 
-              <!-- Gradient Border -->
-              <div
-                class="relative p-[3px] rounded-3xl bg-gradient-to-br from-indigo-400/40 via-purple-400/30 to-pink-400/40"
-              >
-                <img
-                  src="images/mine-image.png"
-                  alt="Anirban Gorain"
-                  class="w-64 h-72 md:w-72 md:h-80 lg:w-80 lg:h-96 rounded-xl object-cover object-top bg-white dark:bg-gray-900"
+        <!-- Title -->
+        <h1
+          class="animate-fade-up-1 font-serif font-bold text-[1.9rem] sm:text-[2.6rem] md:text-[3.1rem] lg:text-[3.6rem] leading-[1.12] tracking-tight text-gray-900 dark:text-white mb-5 max-w-3xl"
+        >
+          Documenting my journey<br class="hidden sm:block" />
+          of building startups<br class="hidden sm:block" />
+          <span class="relative inline-block text-brand">
+            from zero.
+            <!-- Animated underline via inline style — purely decorative, no class needed -->
+            <span
+              class="absolute left-0 -bottom-1 h-[3px] bg-brand rounded-sm animate-underline w-zero"
+            ></span>
+          </span>
+        </h1>
+
+        <!-- Subline -->
+        <p
+          class="animate-fade-up-2 font-serif italic text-base sm:text-lg text-gray-500 dark:text-gray-400 leading-relaxed mb-7 max-w-xl"
+        >
+          The experiments, the learnings, the ups & downs, the wins. Raw and
+          unfiltered all in one place.
+        </p>
+
+        <!-- One row: CTA · divider · socials · divider · stats -->
+        <div
+          class="animate-fade-up-3 flex flex-wrap items-center gap-x-4 gap-y-3 mb-10"
+        >
+          <!-- CTA -->
+          <a
+            href="#videos"
+            class="inline-flex items-center gap-2 bg-brand hover:bg-green-700 text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-colors shadow-sm flex-shrink-0"
+          >
+            Browse all videos
+            <svg
+              class="w-3.5 h-3.5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
+          </a>
+
+          <div
+            class="hidden sm:block w-px h-5 bg-gray-200 dark:bg-gray-700 flex-shrink-0"
+          ></div>
+
+          <!-- Social icons -->
+          <div class="flex items-center gap-2 flex-shrink-0">
+            <!-- YouTube — red hover -->
+            <a
+              href="https://www.youtube.com/@thefounderjourneyofficial"
+              target="_blank"
+              rel="noopener"
+              aria-label="YouTube"
+              class="flex items-center justify-center h-8 px-3 rounded-md bg-red-400 text-white font-medium hover:bg-red-600 transition-colors text-sm"
+            >
+              <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 00.5 6.2 31.5 31.5 0 000 12a31.5 31.5 0 00.5 5.8A3 3 0 002.6 20c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 002.1-2.1A31.5 31.5 0 0024 12a31.5 31.5 0 00-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"
                 />
-              </div>
-            </div>
+              </svg>
+              YouTube
+            </a>
+            <!-- Instagram -->
+            <a
+              href="https://www.instagram.com/thefounderjourneyofficial"
+              target="_blank"
+              rel="noopener"
+              aria-label="Instagram"
+              class="w-9 h-9 rounded-full flex items-center justify-center border border-gray-200 dark:border-gray-700 text-gray-500 dark:text-gray-400 hover:border-brand hover:text-brand hover:bg-green-50 dark:hover:bg-green-950/30 transition-colors"
+            >
+              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1s-3.6 0-4.8-.1c-3.2-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.3 2.2 12s0-3.6.1-4.8C2.4 3.9 4 2.3 7.2 2.3c1.2-.1 1.6-.1 4.8-.1zm0-2.2C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.2 4.4 2.6 6.8 7 7C8.3 24 8.7 24 12 24s3.7 0 4.9-.1c4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9C23.7 2.7 21.3.3 16.9.1 15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 100 12.4A6.2 6.2 0 0012 5.8zM12 16a4 4 0 110-8 4 4 0 010 8zm6.4-11.8a1.4 1.4 0 100 2.8 1.4 1.4 0 000-2.8z"
+                />
+              </svg>
+            </a>
+            <!-- LinkedIn -->
+            <a
+              href="https://www.linkedin.com/in/anirban-gorain"
+              target="_blank"
+              rel="noopener"
+              aria-label="LinkedIn"
+              class="w-9 h-9 rounded-full flex items-center justify-center border border-gray-200 dark:border-gray-700 text-gray-500 dark:text-gray-400 hover:border-brand hover:text-brand hover:bg-green-50 dark:hover:bg-green-950/30 transition-colors"
+            >
+              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M20.4 20.4h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.4V9h3.4v1.6h.1c.5-.9 1.6-1.9 3.3-1.9 3.5 0 4.1 2.3 4.1 5.3v6.4zM5.3 7.4a2.1 2.1 0 110-4.2 2.1 2.1 0 010 4.2zm1.8 13H3.5V9h3.6v11.4zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6C0 23.2.8 24 1.8 24h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0z"
+                />
+              </svg>
+            </a>
+            <!-- Facebook -->
+            <a
+              href="https://www.facebook.com/anirban.gorain.73"
+              target="_blank"
+              rel="noopener"
+              aria-label="Facebook"
+              class="w-9 h-9 rounded-full flex items-center justify-center border border-gray-200 dark:border-gray-700 text-gray-500 dark:text-gray-400 hover:border-brand hover:text-brand hover:bg-green-50 dark:hover:bg-green-950/30 transition-colors"
+            >
+              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M24 12.1C24 5.4 18.6 0 12 0S0 5.4 0 12.1C0 18.1 4.4 23 10.1 24v-8.4H7.1v-3.5h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2V8h-1.5c-1.5 0-1.9.9-1.9 1.9v2.2h3.3l-.5 3.5h-2.8V24C19.6 23 24 18.1 24 12.1z"
+                />
+              </svg>
+            </a>
           </div>
 
-          <!-- RIGHT CONTENT -->
           <div
-            class="max-w-2xl text-gray-700 dark:text-gray-300 text-sm leading-tight space-y-2"
-          >
-            <p class="font-semibold text-indigo-600 dark:text-indigo-400">
-              I know how to code.
-            </p>
+            class="hidden sm:block w-px h-5 bg-gray-200 dark:bg-gray-700 flex-shrink-0"
+          ></div>
 
-            <p>
-              I can get a corporate job. Probably live comfortably. Probably be
-              safe. But I don’t want safe. I don’t want to spend 10 years
-              climbing someone else’s ladder.
-            </p>
+          <!-- Stats inline -->
 
-            <p class="font-semibold">So I’m trying something harder.</p>
-
-            <p>
-              With no funding. No rich background. No shortcuts. Just skills,
-              internet, and time. I’m building towards becoming a founder.
-            </p>
-
-            <p>
-              Not by pretending to be one. But by learning everything from zero.
-            </p>
-
-            <div
-              class="bg-white dark:bg-gray-800 border-l-4 border-indigo-500 px-2 py-1 rounded-md"
-            >
-              Sales. Discipline. Clarity. Execution. Handling pressure. Making
-              money. And few I can't think now.
+          <div class="flex flex-wrap items-center gap-3 text-sm">
+            <div class="flex items-center">
+              <span class="font-serif font-bold text-gray-900 dark:text-white"
+                >6</span
+              >
+              <span class="text-gray-400 dark:text-gray-500 ml-1 text-xs"
+                >videos</span
+              >
             </div>
 
-            <p>
-              This channel is not about content its raw. This is about sharing
-              Experience, Learnings, Mistakes.
-            </p>
+            <div
+              class="hidden sm:block w-px h-4 bg-gray-200 dark:bg-gray-700"
+            ></div>
 
-            <p class="font-semibold">
-              Can a normal student build something real without choosing the
-              safe path? I don’t know. But I’m documenting everything.
-            </p>
-
-            <p class="font-semibold">
-              Welcome to
-              <span
-                class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent"
+            <div class="flex items-center">
+              <span class="font-serif font-bold text-gray-900 dark:text-white"
+                >8</span
               >
-                theFounderJourney
-              </span>
-            </p>
+              <span class="text-gray-400 dark:text-gray-500 ml-1 text-xs"
+                >subscribers</span
+              >
+            </div>
 
-            <!-- SOCIAL BUTTONS -->
-            <div class="flex flex-wrap gap-3 pt-3">
+            <div
+              class="hidden sm:block w-px h-4 bg-gray-200 dark:bg-gray-700"
+            ></div>
+
+            <div class="flex items-center">
+              <span class="font-serif font-bold text-gray-900 dark:text-white"
+                >1</span
+              >
+              <span class="text-gray-400 dark:text-gray-500 ml-1 text-xs"
+                >startup</span
+              >
+            </div>
+
+            <div
+              class="hidden sm:block w-px h-4 bg-gray-200 dark:bg-gray-700"
+            ></div>
+
+            <div class="flex items-center">
+              <span class="font-serif font-bold text-gray-900 dark:text-white"
+                >0</span
+              >
+              <span class="text-gray-400 dark:text-gray-500 ml-1 text-xs"
+                >revenue</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ticker strip -->
+      <div
+        class="border-t border-b border-gray-100 dark:border-gray-800 py-3 bg-gray-50 dark:bg-gray-900/50 overflow-hidden"
+      >
+        <div
+          class="flex w-max animate-ticker whitespace-nowrap hover:[animation-play-state:paused]"
+        >
+          <!-- First copy -->
+          <span
+            class="px-5 text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-600"
+            >Startup Fundamentals</span
+          ><span class="text-brand text-xs">·</span>
+          <span
+            class="px-5 text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-600"
+            >Startup Technical</span
+          ><span class="text-brand text-xs">·</span>
+          <span
+            class="px-5 text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-600"
+            >My Mistakes</span
+          ><span class="text-brand text-xs">·</span>
+          <span
+            class="px-5 text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-600"
+            >Marketing Ideas</span
+          ><span class="text-brand text-xs">·</span>
+          <span
+            class="px-5 text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-600"
+            >My Journey</span
+          ><span class="text-brand text-xs">·</span>
+          <span
+            class="px-5 text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-600"
+            >Case Studies</span
+          ><span class="text-brand text-xs">·</span>
+
+          <!-- Second copy -->
+
+          <span
+            class="px-5 text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-600"
+            >Startup Fundamentals</span
+          ><span class="text-brand text-xs">·</span>
+          <span
+            class="px-5 text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-600"
+            >Startup Technical</span
+          ><span class="text-brand text-xs">·</span>
+          <span
+            class="px-5 text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-600"
+            >My Mistakes</span
+          ><span class="text-brand text-xs">·</span>
+          <span
+            class="px-5 text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-600"
+            >Marketing Ideas</span
+          ><span class="text-brand text-xs">·</span>
+          <span
+            class="px-5 text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-600"
+            >My Journey</span
+          ><span class="text-brand text-xs">·</span>
+          <span
+            class="px-5 text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-600"
+            >Case Studies</span
+          ><span class="text-brand text-xs">·</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── VIDEOS SECTION ──────────────────────────────────────── -->
+    <section id="videos" class="max-w-5xl mx-auto px-5 pt-14 pb-20">
+      <div
+        class="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-8"
+      >
+        <h2
+          class="font-serif text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white"
+        >
+          Videos &amp; Notes
+        </h2>
+        <p
+          class="text-sm text-gray-400 dark:text-gray-500"
+          id="video-count"
+        ></p>
+      </div>
+
+      <!-- Filter pills — rendered by JS -->
+      <div class="flex flex-wrap gap-2 mb-10" id="filter-bar"></div>
+
+      <!-- Video grid — rendered by JS -->
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+        id="video-grid"
+      ></div>
+
+      <!-- Empty state -->
+      <div id="empty-state" class="hidden text-center py-20">
+        <p class="font-serif text-xl text-gray-400 dark:text-gray-500 mb-2">
+          Sorry! One man army.
+        </p>
+        <p class="text-sm text-gray-400">I am working on it.</p>
+      </div>
+    </section>
+
+    <!-- ── DIVIDER ──────────────────────────────────────────────── -->
+    <div class="max-w-2xl mx-auto px-5">
+      <div class="border-t border-gray-200 dark:border-gray-700"></div>
+    </div>
+
+    <!-- ── ABOUT SECTION ───────────────────────────────────────── -->
+    <section id="about" class="max-w-5xl mx-auto px-5 pt-16 pb-20">
+      <div class="mb-10">
+        <h2
+          class="font-serif text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white"
+        >
+          The Founder Journey
+        </h2>
+      </div>
+
+      <div class="flex flex-col md:flex-row gap-10 items-start">
+        <!-- Photo placeholder -->
+        <div class="flex-shrink-0 w-full md:w-52">
+          <div
+            class="rounded-2xl overflow-hidden bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm"
+          >
+            <img
+              src="./images/mine-image.png"
+              alt="Anirban Gorain"
+              class="w-full"
+            />
+          </div>
+        </div>
+
+        <!-- Text -->
+        <div class="flex-1 space-y-5">
+          <p
+            class="border-l-4 border-brand pl-5 font-serif text-lg text-gray-700 dark:text-gray-300 leading-relaxed italic"
+          >
+            This is not a polished success story and probably not even a success
+            story so far. It's a raw and unfiltered what building a startup from
+            zero actually looks like.
+          </p>
+          <p class="text-base text-gray-600 dark:text-gray-400 leading-relaxed">
+            I'm Anirban Gorain a Computer-Science student who decided to stop
+            consuming and start building. Here (in this website, my YouTube
+            channel and other social media platforms) I document everything: the
+            ideas that worked and flopped, the ups & downs, the wins and
+            lessons.
+          </p>
+
+          <div class="pt-2">
+            <p
+              class="text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-4"
+            >
+              Connect with me
+            </p>
+            <div class="flex items-center gap-3 flex-wrap">
               <a
                 href="https://www.youtube.com/@thefounderjourneyofficial"
                 target="_blank"
-                class="relative overflow-hidden px-3 py-1 rounded-full bg-gradient-to-r from-red-500 to-red-600 text-white text-xs font-medium before:absolute before:top-0 before:left-[-100%] before:w-1/2 before:h-full before:bg-white/20 before:rotate-12 before:transition-all before:duration-500 hover:before:left-[150%]"
+                rel="noopener"
+                aria-label="YouTube"
+                class="w-10 h-10 rounded-full flex items-center justify-center bg-gray-100 dark:bg-gray-800 hover:bg-red-100 dark:hover:bg-red-900/30 text-gray-500 dark:text-gray-400 hover:text-red-600 transition-colors"
               >
-                YouTube
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 00.5 6.2 31.5 31.5 0 000 12a31.5 31.5 0 00.5 5.8A3 3 0 002.6 20c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 002.1-2.1A31.5 31.5 0 0024 12a31.5 31.5 0 00-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"
+                  />
+                </svg>
               </a>
-
               <a
                 href="https://www.instagram.com/thefounderjourneyofficial"
                 target="_blank"
-                class="relative overflow-hidden px-3 py-1 rounded-full bg-gradient-to-r from-pink-500 to-pink-600 text-white text-xs font-medium before:absolute before:top-0 before:left-[-100%] before:w-1/2 before:h-full before:bg-white/20 before:rotate-12 before:transition-all before:duration-500 hover:before:left-[150%]"
+                rel="noopener"
+                aria-label="Instagram"
+                class="w-10 h-10 rounded-full flex items-center justify-center bg-gray-100 dark:bg-gray-800 hover:bg-pink-100 dark:hover:bg-pink-900/30 text-gray-500 dark:text-gray-400 hover:text-pink-600 transition-colors"
               >
-                Instagram
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1s-3.6 0-4.8-.1c-3.2-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.3 2.2 12s0-3.6.1-4.8C2.4 3.9 4 2.3 7.2 2.3c1.2-.1 1.6-.1 4.8-.1zm0-2.2C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.2 4.4 2.6 6.8 7 7C8.3 24 8.7 24 12 24s3.7 0 4.9-.1c4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9C23.7 2.7 21.3.3 16.9.1 15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 100 12.4A6.2 6.2 0 0012 5.8zM12 16a4 4 0 110-8 4 4 0 010 8zm6.4-11.8a1.4 1.4 0 100 2.8 1.4 1.4 0 000-2.8z"
+                  />
+                </svg>
               </a>
-
               <a
                 href="https://www.linkedin.com/in/anirban-gorain"
                 target="_blank"
-                class="relative overflow-hidden px-3 py-1 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 text-white text-xs font-medium before:absolute before:top-0 before:left-[-100%] before:w-1/2 before:h-full before:bg-white/20 before:rotate-12 before:transition-all before:duration-500 hover:before:left-[150%]"
+                rel="noopener"
+                aria-label="LinkedIn"
+                class="w-10 h-10 rounded-full flex items-center justify-center bg-gray-100 dark:bg-gray-800 hover:bg-blue-100 dark:hover:bg-blue-900/30 text-gray-500 dark:text-gray-400 hover:text-blue-600 transition-colors"
               >
-                LinkedIn
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M20.4 20.4h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.4V9h3.4v1.6h.1c.5-.9 1.6-1.9 3.3-1.9 3.5 0 4.1 2.3 4.1 5.3v6.4zM5.3 7.4a2.1 2.1 0 110-4.2 2.1 2.1 0 010 4.2zm1.8 13H3.5V9h3.6v11.4zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6C0 23.2.8 24 1.8 24h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0z"
+                  />
+                </svg>
               </a>
-
               <a
                 href="https://www.facebook.com/anirban.gorain.73"
                 target="_blank"
-                class="relative overflow-hidden px-3 py-1 rounded-full bg-gradient-to-r from-blue-700 to-blue-800 text-white text-xs font-medium before:absolute before:top-0 before:left-[-100%] before:w-1/2 before:h-full before:bg-white/20 before:rotate-12 before:transition-all before:duration-500 hover:before:left-[150%]"
+                rel="noopener"
+                aria-label="Facebook"
+                class="w-10 h-10 rounded-full flex items-center justify-center bg-gray-100 dark:bg-gray-800 hover:bg-blue-100 dark:hover:bg-blue-900/30 text-gray-500 dark:text-gray-400 hover:text-blue-700 transition-colors"
               >
-                Facebook
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M24 12.1C24 5.4 18.6 0 12 0S0 5.4 0 12.1C0 18.1 4.4 23 10.1 24v-8.4H7.1v-3.5h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2V8h-1.5c-1.5 0-1.9.9-1.9 1.9v2.2h3.3l-.5 3.5h-2.8V24C19.6 23 24 18.1 24 12.1z"
+                  />
+                </svg>
               </a>
             </div>
           </div>
@@ -172,6 +593,310 @@
       </div>
     </section>
 
-    <script src="script.js"></script>
+    <!-- ── FOOTER ──────────────────────────────────────────────── -->
+    <footer
+      class="border-t border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-[#0e0e0e]"
+    >
+      <div
+        class="max-w-5xl mx-auto px-5 py-10 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-500 dark:text-gray-500"
+      >
+        <span class="font-serif font-bold text-gray-700 dark:text-gray-300"
+          >The Founder Journey</span
+        >
+        <span>© 2025 theFounderJourney · All rights reserved</span>
+        <div class="flex items-center gap-4">
+          <a
+            href="https://www.youtube.com/@thefounderjourneyofficial"
+            target="_blank"
+            rel="noopener"
+            class="hover:text-gray-900 dark:hover:text-white transition-colors"
+            >YouTube</a
+          >
+          <a
+            href="https://www.instagram.com/thefounderjourneyofficial"
+            target="_blank"
+            rel="noopener"
+            class="hover:text-gray-900 dark:hover:text-white transition-colors"
+            >Instagram</a
+          >
+          <a
+            href="https://www.linkedin.com/in/anirban-gorain"
+            target="_blank"
+            rel="noopener"
+            class="hover:text-gray-900 dark:hover:text-white transition-colors"
+            >LinkedIn</a
+          >
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // ─────────────────────────────────────────────────────────────
+      // DATA — edit this object to add / update / remove videos
+      // ─────────────────────────────────────────────────────────────
+
+      const TOPICS = {
+        "my-journey": {
+          label: "My Journey",
+          badge:
+            "bg-purple-100 text-purple-800 dark:bg-purple-900/40 dark:text-purple-300",
+        },
+        "startup-fundamentals": {
+          label: "Startup Fundamentals",
+          badge:
+            "bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-300",
+        },
+        "startup-technical": {
+          label: "Startup Technical",
+          badge:
+            "bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-300",
+        },
+        "case-studies": {
+          label: "Case Studies",
+          badge:
+            "bg-orange-100 text-orange-800 dark:bg-orange-900/40 dark:text-orange-300",
+        },
+        marketing: {
+          label: "Marketing",
+          badge:
+            "bg-pink-100 text-pink-800 dark:bg-pink-900/40 dark:text-pink-300",
+        },
+        "my-mistakes": {
+          label: "My Mistakes",
+          badge:
+            "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/40 dark:text-yellow-300",
+        },
+      };
+
+      const VIDEOS = [
+        {
+          topic: "startup-fundamentals",
+          title:
+            "I recently learned how to use LinkedIn as a pro. 99% don't know.",
+          thumb: "https://img.youtube.com/vi/ZZhK3smKNYI/mqdefault.jpg  ",
+          notesUrl: "pages/how-to-build-a-powerful-network-on-linkedin.html",
+          hasNotes: true,
+          comingSoon: false,
+        },
+        {
+          topic: "startup-fundamentals",
+          title:
+            "I tried talking to 50-Strangers to fix the fear communication",
+          thumb: "video-thumbnails/talking-with-50-people.png",
+          notesUrl:
+            "pages/i-talked-to-50-people-to-ask-feedback-on-a-mvp-of-a-student-mental-health-app.html",
+          hasNotes: true,
+          comingSoon: true,
+        },
+        {
+          topic: "startup-fundamentals",
+          title: "I kept following new ideas and it ruined me",
+          thumb: "video-thumbnails/multiple-ideas-trap.png",
+          notesUrl: "pages/how-to-build-a-powerful-network-on-linkedin.html",
+          hasNotes: false,
+          comingSoon: true,
+        },
+        {
+          topic: "startup-fundamentals",
+          title: "I found the reasons why startups fails",
+          thumb: "video-thumbnails/startup-survival-mindsets.png",
+          notesUrl: "pages/how-to-build-a-powerful-network-on-linkedin.html",
+          hasNotes: false,
+          comingSoon: true,
+        },
+        {
+          topic: "startup-fundamentals",
+          title: "I studied 56 hours to stop wasting my startup time",
+          thumb: "video-thumbnails/learn-to-say-no-and-save-time.png",
+          hasNotes: false,
+          comingSoon: true,
+        },
+      ];
+
+      // ─────────────────────────────────────────────────────────────
+      // RENDER — builds filter pills + video cards from data
+      // ─────────────────────────────────────────────────────────────
+
+      const PLAY_ICON = `<svg class="w-4 h-4 text-[#1a8917] ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>`;
+      const NOTES_ICON = `<svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-3-3v6m-7 4h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>`;
+
+      function buildCard(video) {
+        const topic = TOPICS[video.topic];
+        const wrapper = video.comingSoon ? "div" : "a";
+        const el = document.createElement(wrapper);
+
+        el.dataset.topic = video.topic;
+
+        if (!video.comingSoon) {
+          el.href = video.notesUrl;
+          el.className =
+            "group bg-white dark:bg-[#1e1e1e] rounded-xl overflow-hidden border border-gray-100 dark:border-gray-800 block hover:-translate-y-1 hover:shadow-xl transition-all duration-200 animate-card-reveal";
+        } else {
+          el.className =
+            "bg-white dark:bg-[#1e1e1e] rounded-xl overflow-hidden border border-gray-100 dark:border-gray-800 opacity-50 select-none animate-card-reveal";
+        }
+
+        const thumbFallback = video.thumbFallback || video.thumb;
+
+        el.innerHTML = `
+        <div class="relative overflow-hidden">
+          <img src="${video.thumb}"
+               alt="${video.title}"
+               loading="lazy"
+               class="w-full aspect-video object-cover ${!video.comingSoon ? "group-hover:scale-105" : ""} transition-transform duration-300"
+               onerror="this.src='${thumbFallback}'" />
+          ${
+            !video.comingSoon
+              ? `
+          <div class="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+            <div class="w-11 h-11 bg-white/90 rounded-full flex items-center justify-center">${PLAY_ICON}</div>
+          </div>`
+              : ""
+          }
+        </div>
+        <div class="p-4">
+          <span class="inline-block text-xs font-semibold px-2.5 py-0.5 rounded-full mb-2 ${topic.badge}">${topic.label}</span>
+          <h3 class="font-serif font-bold text-gray-900 dark:text-white leading-snug text-base mb-2">${video.title}</h3>
+          <p class="text-xs text-gray-400 flex items-center gap-1">
+            ${
+              video.hasNotes
+                ? `${NOTES_ICON} Notes available`
+                : "Episode in progress"
+            }
+          </p>
+        </div>`;
+
+        return el;
+      }
+
+      function buildFilterBar() {
+        const bar = document.getElementById("filter-bar");
+        const allBtn = document.createElement("button");
+        allBtn.dataset.filter = "all";
+        allBtn.className =
+          "filter-pill cursor-pointer text-sm font-medium px-4 py-1.5 rounded-full border border-[#1a8917] bg-[#1a8917] text-white transition-colors";
+        allBtn.textContent = "All";
+        bar.appendChild(allBtn);
+
+        Object.entries(TOPICS).forEach(([key, { label }]) => {
+          const btn = document.createElement("button");
+          btn.dataset.filter = key;
+          btn.className =
+            "filter-pill cursor-pointer text-sm font-medium px-4 py-1.5 rounded-full border border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-300 hover:border-[#1a8917] hover:text-[#1a8917] transition-colors";
+          btn.textContent = label;
+          bar.appendChild(btn);
+        });
+      }
+
+      function renderGrid() {
+        const grid = document.getElementById("video-grid");
+        VIDEOS.forEach((v) => grid.appendChild(buildCard(v)));
+      }
+
+      // ─────────────────────────────────────────────────────────────
+      // FILTER logic
+      // ─────────────────────────────────────────────────────────────
+
+      function initFilter() {
+        const pills = document.querySelectorAll(".filter-pill");
+        const cards = document.querySelectorAll("#video-grid > *");
+        const countEl = document.getElementById("video-count");
+        const emptyEl = document.getElementById("empty-state");
+
+        function setActive(active) {
+          pills.forEach((p) => {
+            const isActive = p === active;
+            p.classList.toggle("bg-[#1a8917]", isActive);
+            p.classList.toggle("text-white", isActive);
+            p.classList.toggle("border-[#1a8917]", isActive);
+            p.classList.toggle("border-gray-300", !isActive);
+            p.classList.toggle("text-gray-600", !isActive);
+          });
+        }
+
+        function applyFilter(filter) {
+          let visible = 0;
+          cards.forEach((card) => {
+            const show = filter === "all" || card.dataset.topic === filter;
+            card.style.display = show ? "" : "none";
+            if (show) visible++;
+          });
+          emptyEl.classList.toggle("hidden", visible > 0);
+          countEl.textContent =
+            visible === cards.length
+              ? `${visible} videos`
+              : `${visible} video${visible !== 1 ? "s" : ""} found`;
+        }
+
+        pills.forEach((pill) => {
+          pill.addEventListener("click", () => {
+            setActive(pill);
+            applyFilter(pill.dataset.filter);
+          });
+        });
+
+        applyFilter("all");
+      }
+
+      // ─────────────────────────────────────────────────────────────
+      // SCROLL REVEAL
+      // ─────────────────────────────────────────────────────────────
+
+      function initScrollReveal() {
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry, i) => {
+              if (entry.isIntersecting) {
+                setTimeout(
+                  () => entry.target.classList.add("opacity-100"),
+                  i * 80,
+                );
+                io.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.08 },
+        );
+        document
+          .querySelectorAll(".animate-card-reveal")
+          .forEach((el) => io.observe(el));
+      }
+
+      // ─────────────────────────────────────────────────────────────
+      // THEME
+      // ─────────────────────────────────────────────────────────────
+
+      const html = document.documentElement;
+      const saved = localStorage.getItem("theme");
+      if (
+        saved === "dark" ||
+        (!saved && window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        html.classList.add("dark");
+      }
+      document.getElementById("theme-toggle").addEventListener("click", () => {
+        html.classList.toggle("dark");
+        localStorage.setItem(
+          "theme",
+          html.classList.contains("dark") ? "dark" : "light",
+        );
+      });
+
+      // Progress bar
+      window.addEventListener("scroll", () => {
+        const doc = document.documentElement;
+        document.getElementById("progress-bar").style.width =
+          (doc.scrollTop / (doc.scrollHeight - doc.clientHeight)) * 100 + "%";
+      });
+
+      // ─────────────────────────────────────────────────────────────
+      // BOOT
+      // ─────────────────────────────────────────────────────────────
+
+      buildFilterBar();
+      renderGrid();
+      initFilter();
+      initScrollReveal();
+    </script>
   </body>
 </html>
